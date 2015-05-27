@@ -148,6 +148,7 @@ class LogstashFormatterV1(LogstashFormatter):
             if fields['exc_info']:
                 formatted = tb.format_exception(*fields['exc_info'])
                 fields['exception'] = formatted
+                fields['exception_str'] = '\n'.join(formatted)
             fields.pop('exc_info')
 
         if 'exc_text' in fields and not fields['exc_text']:
